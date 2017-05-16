@@ -6,12 +6,13 @@ const App = {
     },
 
     createList(person){
-        const nameList = document.createElement('ul')
+        const nameList = document.querySelector('ul')
         Array.from(person).map((input) => {
             if(input.value){
                 let name = input.value
-                let li = this.createListItem(name)
-                nameList.appendChild(li)
+                const newLi = this.createListItem(name)
+                //nameList.appendChild(newLi)
+                nameList.insertBefore(newLi, nameList.firstChild)
             }
         })
         return nameList
