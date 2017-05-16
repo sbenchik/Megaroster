@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*{
+    font-family: 'Montserrat'
+}
+
+.listButton{
+    margin-left: 5px;
+}
+
+form, h1, h2{
+    text-align: center;
+}
+
+h1{
+    font-size: 4em;
+    font-weight: bold;
+}
+
+ul>li{
+    display: block;
+    text-align: center;
+    padding: .5em .5em;
+}
+
+h2{
+    font-size: 2em;
+    font-weight: normal; 
+}
