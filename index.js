@@ -5,16 +5,16 @@ const App = {
         nameForm.addEventListener('submit', (ev) => this.onSubmit(ev))
     },
 
-    removeItem(arr, toRemove){
-        arr.splice(arr.findIndex( (target)=>{
-            return target === toRemove
-        }), 1)
-    },
-
-    onClick(ev){
+    delete(ev){
         ev.preventDefault()
         const listItem = ev.target.parentNode
         listItem.parentNode.removeChild(listItem)
+    },
+
+    promote(ev){
+        ev.preventDefault()
+        let listItem = ev.target.parentNode
+        listItem.style.fontWeight = 'bold'
     },
 
     createList(person){
@@ -36,8 +36,13 @@ const App = {
 
         const deleteButton = document.createElement('button')
         deleteButton.textContent = 'Delete'
-        deleteButton.addEventListener('click', (ev) => this.onClick(ev))
+        deleteButton.addEventListener('click', (ev) => this.delete(ev))
 
+        const promoteButton = document.createElement('button')
+        promoteButton.textContent = 'Promote'
+        promoteButton.addEventListener('click', (ev) => this.promote(ev))
+
+        newName.appendChild(promoteButton)
         newName.appendChild(deleteButton)
         return newName
     },
