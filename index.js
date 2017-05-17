@@ -1,8 +1,10 @@
+$(document).foundation()
+
 const App = {
     
-    init(){
-        const nameForm = document.querySelector('form')
-        nameForm.addEventListener('submit', (ev) => this.onSubmit(ev))
+    init(listSelector){
+        nameForm = document.querySelector('form')
+        nameForm.addEventListener('submit', (ev) => this.addStudent(ev))
     },
 
     delete(ev){
@@ -36,12 +38,12 @@ const App = {
 
         const deleteButton = document.createElement('button')
         deleteButton.textContent = 'Delete'
-        deleteButton.classList.add('listButton')
+        deleteButton.classList.add('alert', 'button', 'small', 'listButton')
         deleteButton.addEventListener('click', (ev) => this.delete(ev))
 
         const promoteButton = document.createElement('button')
         promoteButton.textContent = 'Promote'
-        promoteButton.classList.add('listButton')
+        promoteButton.classList.add('success', 'button', 'small', 'listButton')
         promoteButton.addEventListener('click', (ev) => this.promote(ev))
 
         newName.appendChild(promoteButton)
@@ -49,7 +51,7 @@ const App = {
         return newName
     },
 
-    onSubmit(ev){
+    addStudent(ev){
         ev.preventDefault()
         const form = ev.target
         const names = document.querySelector('.names')
