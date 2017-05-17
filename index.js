@@ -38,12 +38,12 @@ const App = {
 
         const deleteButton = document.createElement('button')
         deleteButton.textContent = 'Delete'
-        deleteButton.classList.add('alert', 'button', 'small', 'listButton')
+        deleteButton.classList.add('alert', 'button', 'listButton')
         deleteButton.addEventListener('click', (ev) => this.delete(ev))
 
         const promoteButton = document.createElement('button')
         promoteButton.textContent = 'Promote'
-        promoteButton.classList.add('success', 'button', 'small', 'listButton')
+        promoteButton.classList.add('success', 'button', 'listButton')
         promoteButton.addEventListener('click', (ev) => this.promote(ev))
 
         newName.appendChild(promoteButton)
@@ -57,6 +57,7 @@ const App = {
         const names = document.querySelector('.names')
         const list = this.createList(form.elements)
         names.appendChild(list)
+        form.reset()
     },
 }
 App.init()
